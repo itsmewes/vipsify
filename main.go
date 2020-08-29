@@ -44,6 +44,9 @@ func index(rw http.ResponseWriter, r *http.Request) {
 			options.Type = bimg.PNG
 			b.WriteString(".png")
 		}
+	} else if strings.Contains(r.Header.Get("Accept"), "webp") {
+		options.Type = bimg.WEBP
+		b.WriteString(".webp")
 	} else {
 		b.WriteString(path.Ext(imageSrc[0]))
 	}
