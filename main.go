@@ -24,13 +24,17 @@ func index(rw http.ResponseWriter, r *http.Request) {
 	}
 
 	var b bytes.Buffer
+	cacheFolder := b64.StdEncoding.EncodeToString([]byte(r.URL.String()))
 	b.WriteString("cache/")
-	b.WriteString(b64.StdEncoding.EncodeToString([]byte(r.URL.String())))
+	b.WriteString(cacheFolder)
+	b.WriteString("/")
+	b.WriteString(strings.Split(path.Base(imageSrc[0]), ".")[0])
 
 	w, hasWidth := r.URL.Query()["w"]
 	h, hasHeight := r.URL.Query()["h"]
 	o, hasOptions := r.URL.Query()["o"]
 	t, hasType := r.URL.Query()["t"]
+	c, hasCompression := r.URL.Query()["c"]
 
 	if hasType {
 		switch t[0] {
@@ -57,15 +61,22 @@ func index(rw http.ResponseWriter, r *http.Request) {
 	}
 
 	name := b.String()
-	if fileExists(name) && (hasOptions && !Contains(opts, "fresh")) {
+	rw.Header().Set("Content-Disposition", fmt.Sprintf(`filename="%s"`, path.Base(name)))
+	
+	if fileExists(name) && !Contains(opts, "fresh") {
 		http.ServeFile(rw, r, name)
 		return
 	}
+	
+	err := os.MkdirAll("cache/" + cacheFolder, 0755)
+	if err != nil {
+		fmt.Fprintf(rw, "%q", "Could not create folder")
+	}
 
 	g := got.New()
-	err := g.Download(imageSrc[0], b.String())
+	err = g.Download(imageSrc[0], name)
 	if err != nil {
-		fmt.Fprintf(rw, "%q", "Could not download the image using got")
+		fmt.Fprintf(rw, "%q", "Could not download the image")
 		return
 	}
 
@@ -101,6 +112,10 @@ func index(rw http.ResponseWriter, r *http.Request) {
 
 	if hasHeight {
 		options.Height, _ = strconv.Atoi(h[0])
+	}
+
+	if hasCompression {
+		options.Compression, _ = strconv.Atoi(c[0])
 	}
 
 	options.StripMetadata = true

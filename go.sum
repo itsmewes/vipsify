@@ -7,10 +7,15 @@ github.com/h2non/bimg v1.1.2/go.mod h1:R3+UiYwkK4rQl6KVFTOFJHitgLbZXBZNFh2cv3AEb
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
 github.com/melbahja/got v0.2.0 h1:kbyGBLSSI2iN3Gxfzh4E8wm3RUaqjYZIj5jHTR++hFA=
 github.com/melbahja/got v0.2.0/go.mod h1:PrKGMFWyfkCbU1kYOYc1bxqEscMjVSWeti20b/p4DJY=
+github.com/melbahja/got v0.2.1 h1:f0i7Ckn0kxaf0S+Sl5ASxqkw7mt0l4uVZZF1cN2KXCU=
+github.com/melbahja/got v0.2.1/go.mod h1:MTpuhFF0CnFrmZgbjoH6MARJtpbift56fEo+onZah1M=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
 github.com/urfave/cli/v2 v2.2.0/go.mod h1:SE9GqnLQmjVa0iPEY0f1w3ygNIYcIJ0OKPMoW2caLfQ=
+gitlab.com/poldi1405/go-ansi v1.1.0/go.mod h1:TLoRttGdPaq5H2qfF7I1cC5Lt2WXtQeIkFurjbUf6OI=
+gitlab.com/poldi1405/go-indicators v0.0.0-20200820134929-9b373aa411a5/go.mod h1:jn34qwBiXTHz73wD9neAMeJGCeMijVro+WCqk1RJXL4=
+gitlab.com/poldi1405/go-indicators v1.0.0/go.mod h1:jn34qwBiXTHz73wD9neAMeJGCeMijVro+WCqk1RJXL4=
 golang.org/x/sys v0.0.0-20200116001909-b77594299b42/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
