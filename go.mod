@@ -7,4 +7,5 @@ require (
 	github.com/h2non/bimg v1.1.2
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/melbahja/got v0.2.1
+	golang.org/x/tools/gopls v0.4.4 // indirect
 )
